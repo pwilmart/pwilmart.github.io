@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Phil's CV
+title: Phil CV
 ---
 
 Put a short CV here
