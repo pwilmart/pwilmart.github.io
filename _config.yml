@@ -1,4 +1,3 @@
 name: Phillip Wilmarth
 markdown: kramdown
-
 permalink: /blog/:year/:month/:day/:title
