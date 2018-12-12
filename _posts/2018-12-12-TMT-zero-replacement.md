@@ -4,8 +4,6 @@ title: "What (and when) to do with zeros in TMT data?"
 date: 2018-12-12
 ---
 
-# What (and when) to do with zeros in TMT data?
-
 One of the advantages of TMT labeling is much less missing data compared to other methods like MS1 feature based label-free quantitation. That does not imply that there is **no** missing data. The reporter ions are measured in single scans and some of the reporter ions may be below the detection limits for lower abundance PSMs. If isotopic purity correction factors are used, some channels might have all of their intensity accounted for from adjacent channels. There are also cases where a PSM can have a sequence assignment but not be abundant enough to have any reporter ions. These scenarios are more like true missing at random cases.
 
 If multiple TMT labeling are required in a larger experiment, then there are proteins (with associated peptides and PSMs) unique to each individual TMT experiment. This creates TMT data for these proteins that are missing by TMT experiment cases. There can even be the case where there is evidence for a protein in one TMT experiment but there were no reporter ions, and that protein was not seen in other TMT experiments. Then you have a protein with no reporter ions at all.
