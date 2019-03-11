@@ -47,8 +47,8 @@ The same canonical UniProt human reference FASTA protein data base was used (abo
 
 **Table 1.** Dataset sizes and identification rates (thousands separator is comma, decimal is period).
 
-|Sample|PAW All|PAW ID|PAW Rate|MQ All|MQ ID|MQ Rate|Gain|
-|------|-------|------|--------|------|-----|-------|----|
+|  Sample  |  PAW All  |  PAW ID  |  PAW Rate  |  MQ All  |  MQ ID  |  MQ Rate  |  Gain  |
+|----------|-----------|----------|------------|----------|---------|-----------|--------|
 |ASLA-515|334,834|89,599|26.8%|348,290|64,361|18.5%|39.2%|
 |ASLA-603|289,891|109,989|37.9%|299,474|93,808|31.3%|17.2%|
 |ASLA-626|300,077|117,280|39.1%|313,821|92,710|29.5%|26.5%|
@@ -68,7 +68,7 @@ The bigger problem is that the relationship between incorrect peptide sequences 
 
 The essential mathematics can be found in the Supplemental materials for the [MAYU](https://www.mcponline.org/content/8/11/2405.short) paper. Unfortunately, the paper missed the opportunity to simplify the formula for the typical proteomics case. If we are less concerned with accurate modeling and just want to get the gist of how numbers of incorrect proteins depend on numbers of incorrect peptides, we can make some approximations. The number of incorrect peptide sequences are usually much smaller than the number of proteins in the FASTA database. The numbers of incorrect peptides are typically a few hundred. The number of proteins in protein databases are typically a few to many tens of thousands. Consequently, one of the terms in the hypergeometric probability equation will be so close to 1.0 that we can drop it. Truncated factorials can be replaced with power expressions (100*99*98 is pretty close to 100^3). There is explicit dependence on the number of peptides per protein. The general form drops off so rapidly with increasing numbers of peptides per protein, that explicit forms for 1, 2 or 3 peptides per protein are all that are relevant.
 
-![protein error equations](../images/protein_errors.png)
+![protein error equations](https://pwilmart.github.io/images/protein_errors.png)
 
 **There are a few key points:**
 
