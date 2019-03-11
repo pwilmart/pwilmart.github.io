@@ -48,7 +48,7 @@ The same canonical UniProt human reference FASTA protein data base was used (abo
 **Table 1.** Dataset sizes and identification rates (decimal is period).
 
 |  Sample  |  PAW All  |  PAW ID  |  PAW Rate  |  MQ All  |  MQ ID  |  MQ Rate  |  Gain  |
-|:------------|:-----------:|:----------:|:------------:|:----------:|:---------:|:-----------:|:--------:|
+|:------------|-----------:|----------:|:------------:|----------:|---------:|:-----------:|:--------:|
 |ASLA515|334834|89599|26.8%|348290|64361|18.5%|39.2%|
 |ASLA603|289891|109989|37.9%|299474|93808|31.3%|17.2%|
 |ASLA626|300077|117280|39.1%|313821|92710|29.5%|26.5%|
@@ -97,7 +97,7 @@ Now that we have some background on how incorrect peptides and incorrect protein
 **Table 2.** Protein identifications (excluding contaminants).
 
 |Category|MQ Target|MQ Decoy|MQ FDR|PAW Target|PAW Decoy|PAW Rate|
-|--------|---------|--------|------|----------|---------|--------|
+|--------|---------:|--------:|:------:|----------:|---------:|:--------:|
 |All|4576|147|3%|4397|144|3%|
 |Single peptide|451|104|23%|na|na|na|
 |Two or more|4125|43|1%|4397|144|3%|
