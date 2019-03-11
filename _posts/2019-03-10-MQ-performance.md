@@ -49,10 +49,10 @@ The same canonical UniProt human reference FASTA protein data base was used (abo
 
 |  Sample  |  PAW All  |  PAW ID  |  PAW Rate  |  MQ All  |  MQ ID  |  MQ Rate  |  Gain  |
 |:------------|-----------:|----------:|:------------:|----------:|---------:|:-----------:|:--------:|
-|ASLA515|334834|89599|26.8%|348290|64361|18.5%|39.2%|
-|ASLA603|289891|109989|37.9%|299474|93808|31.3%|17.2%|
-|ASLA626|300077|117280|39.1%|313821|92710|29.5%|26.5%|
-|Total|924802|316868|34.3%|961585|250879|26.1%|26.3%|
+|ASLA515|334834|89599|27%|348290|64361|19%|39%|
+|ASLA603|289891|109989|38%|299474|93808|31%|17%|
+|ASLA626|300077|117280|39%|313821|92710|30%|27%|
+|Total|924802|316868|34%|961585|250879|26.%|26%|
 
 The significantly greater numbers of identified PSMs at a 1% FDR for the PAW pipeline versus MaxQuant is typical from comparisons I have done of many datasets over the past few years. Andromeda was initially benchmarked against Mascot and had similar performance. The main score function in Mascot does not separate decoy scores from target scores as well as transformed SEQUEST scores. That is why [Mascot Percolator](https://pubs.acs.org/doi/abs/10.1021/pr800982s) significantly outperformed other Mascot search processing.
 
