@@ -45,14 +45,14 @@ The sensitivity of PSM assignments (the number of filtered PSMs at a given false
 
 The same canonical UniProt human reference FASTA protein data base was used (about 21K sequences). For the PAW analysis, a concatenated target and reversed sequence decoy database was used. It contained common laboratory contaminant sequences. MaxQuant has built-in support for contaminants and decoys. PSMs were filtered to 1% FDR in both analyses. MaxQuant does its own RAW file processing. The PAW pipeline relies on [MSConvert](http://proteowizard.sourceforge.net/download.html) and Python scripts to generate [MS2 format](https://onlinelibrary.wiley.com/doi/abs/10.1002/rcm.1603) input files for Comet. Table 1 below has the numbers of fragment ion spectra (scans) searched, the number of identified scans at a 1% FDR, and ID rate for each pipeline.
 
-**Table 1.** Dataset sizes and identification rates (thousands separator is comma, decimal is period).
+**Table 1.** Dataset sizes and identification rates (decimal is period).
 
 |  Sample  |  PAW All  |  PAW ID  |  PAW Rate  |  MQ All  |  MQ ID  |  MQ Rate  |  Gain  |
 |:------------|:-----------:|:----------:|:------------:|:----------:|:---------:|:-----------:|:--------:|
-|ASLA-515|334,834|89,599|26.8%|348,290|64,361|18.5%|39.2%|
-|ASLA-603|289,891|109,989|37.9%|299,474|93,808|31.3%|17.2%|
-|ASLA-626|300,077|117,280|39.1%|313,821|92,710|29.5%|26.5%|
-|Total|924,802|316,868|34.3%|961,585|250,879|26.1%|26.3%|
+|ASLA515|334834|89599|26.8%|348290|64361|18.5%|39.2%|
+|ASLA603|289891|109989|37.9%|299474|93808|31.3%|17.2%|
+|ASLA626|300077|117280|39.1%|313821|92710|29.5%|26.5%|
+|Total|924802|316868|34.3%|961585|250879|26.1%|26.3%|
 
 The significantly greater numbers of identified PSMs at a 1% FDR for the PAW pipeline versus MaxQuant is typical from comparisons I have done of many datasets over the past few years. Andromeda was initially benchmarked against Mascot and had similar performance. The main score function in Mascot does not separate decoy scores from target scores as well as transformed SEQUEST scores. That is why [Mascot Percolator](https://pubs.acs.org/doi/abs/10.1021/pr800982s) significantly outperformed other Mascot search processing.
 
@@ -98,9 +98,9 @@ Now that we have some background on how incorrect peptides and incorrect protein
 
 |Category|MQ Target|MQ Decoy|MQ FDR|PAW Target|PAW Decoy|PAW Rate|
 |--------|---------|--------|------|----------|---------|--------|
-|All|4,576|147|3%|4,397|144|3%|
+|All|4576|147|3%|4397|144|3%|
 |Single peptide|451|104|23%|na|na|na|
-|Two or more|4,125|43|1%|4,397|144|3%|
+|Two or more|4125|43|1%|4397|144|3%|
 
 Comparing numbers of PSMs at a given FDR is a straightforward, fair comparison. Comparing proteins with some differences in protein acceptance criteria is much more apples-to-oranges. MaxQuant has more total protein IDs despite having fewer PSMs to work with. That is all because of the 451 single peptide IDs. You get 451 proteins (10% of the total) from 451 PSMs (0.18% of the PSM total). Those are the category where the majority (71%) of the incorrect protein matches are located. We can see how different errors are for single peptide IDs (23%) compared to two or more (1%).
 
