@@ -97,7 +97,7 @@ Now that we have some background on how incorrect peptides and incorrect protein
 **Table 2.** Protein identifications (excluding contaminants).
 
 |Category|MQ Target|MQ Decoy|MQ FDR|PAW Target|PAW Decoy|PAW Rate|
-|--------|---------:|--------:|:------:|----------:|---------:|:--------:|
+|--------|---------:|--------:|------:|----------:|---------:|--------:|
 |All|4576|147|3%|4397|144|3%|
 |Single peptide|451|104|23%|na|na|na|
 |Two or more|4125|43|1%|4397|144|3%|
