@@ -87,7 +87,7 @@ The proteins that the measured data suggest are present in our sample is not a s
 
 ![full](https://pwilmart.github.io/images/full.png)
 
-![half](https://pwilmart.github.io/images/.png)
+![half](https://pwilmart.github.io/images/half.png)
 
 ![quarter](https://pwilmart.github.io/images/quarter.png)
 
