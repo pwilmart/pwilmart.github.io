@@ -125,7 +125,23 @@ If we cut the signals in half again, we now have just 5 peptides. Any more decre
 
 ![quarter](https://pwilmart.github.io/images/quarter.png)
 
-I made the argument at the beginning that shotgun quantification is just weighted spectral counting. So we will do the most simple thing that we can and just sum up the intensities for all of the peptides that are above the detection limit into protein total intensities. In the Full case, we sum up 13 intensities, in the Half case we sum 9 intensities, and in the Quarter case we sum 5 peptides.
+I made the argument at the beginning that shotgun quantification is just weighted spectral counting. So we will do the most simple thing that we can and just sum up the intensities for all of the peptides that are above the detection limit into protein total intensities. In the Full case, we sum up 13 intensities, in the Half case we sum up 9 intensities, and in the Quarter case we sum up 5 peptides.
+
+Do we sum up all signals from all PSMs all of the time? No, we want to exclude any shared peptides. In what context are we defining shared and unique you might (and should) ask? In whatever final protein context that we deemed appropriate for the results. Remember that the changing context involves tradeoffs. In many cases, if we sacrifice a little protein quantification resolution, we can dramatically increase the fraction of peptides that are unique (in that context). Check out Section 3.4 on Quantitative Information Content in [Ravi's thesis](https://digitalcollections.ohsu.edu/concern/etds/c534fp149) for more details and some examples.
+
+Data quality, as measured by a few metrics, improves as we aggregate from the PSM to the peptide level and as we go from peptides to proteins. We look at these improvements in [this dilution series](https://pwilmart.github.io/TMT_analysis_examples/MAN1353_peptides_proteins.html) notebook. That data is one mouse brain sample labeled with 6-plex TMT and diluted in 25:20:15:10:5:2.5 factors across the channels. There are 60K PSMs, 20K peptides, and 2700 proteins. The protein total intensities span 7 orders of magnitude in intensity. It is kind of the product of the 2-3 orders of magnitude in spectral counts times the 4-5 orders of magnitude of individual PSM intensities.
+
+## Does this protein rollup work?
+
+That is [the 64 thousand dollar question](https://en.wikipedia.org/wiki/The_$64,000_Question). There are a lot of proteins in the world and biological systems seem to enjoy finding unusual ways to solve problems. There are no doubt hundred (maybe thousands) of journal articles detailing cases where all of this falls flat on its face. If you can think of your favorite example and pinpoint exactly where these protein rollup efforts fail, the we have made some real progress. Discovery quantification is not the answer to every question. Understanding its compromises and tradeoffs is crucial to knowing when **not** to use it. There are tradeoffs to targeted quantification and it is not the solution to every problem either.
+
+The above question deserves some kind of answer, however. How can we answer it in a clear way? This is truly one of the challenges in most proteomics method development. Common ways to try and answer such questions are to make some artificial test mixtures where the know outcome is thought to be known. These are usually spike-in mixtures where they address quantification dynamic range and accuracy rather than overall sanity. These typically fall into the positive control category. The most common drawbacks are that the mixtures can be too simple to mimic the real biological samples, and many times the spike-in proteins are medium to higher abundant proteins. Most of the warts in proteomics methods are from the lowest abundance proteins where the information gets too sparse to test anything.
+
+If you have done any normalization methods work, you learn to ignore the proteins that are changing in abundance. They are just a nuisance. The meat and potatoes are the proteins that are not changing in abundance. They are the critical proteins that nearly all normalization methods absolutely have to have to work. The sources of variation that we are trying to remove in the normalization methods cause the measurement of a constant (the expression level of an unchanging protein) to be variable between samples. We adjust the data in ways designed to make those constant values converge. These unchanging proteins are a negative control that we can exploit in the actual experiments we are most interested in studying. We can do sanity checks on real data without having to rely on test mixture data that may be a poor proxy for the real case.
+
+## Some sanity checks from TMT data
+
+![E. coli background](https://pwilmart.github.io/images/E_coli_no-change.png)
 
 ---
 
