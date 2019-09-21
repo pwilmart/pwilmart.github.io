@@ -4,14 +4,6 @@ title: "How do we try and put Humpty Dumpty back together?"
 date: 2019-09-20
 ---
 
-- it is just spectral counting
-- two-peptide rule and protein ranking functions
-- identifiable versus quantifiable
-  - missing data and low abundance cutoff
-- grouping pros and cons
-  - razor peptide method is not good
-- negative controls vs positive controls
-
 ## Introduction
 
 This second installment on data plumbing will tackle the interplay between [protein inference](https://www.mcponline.org/content/4/10/1419.short) and quantitative data rollup in shotgun proteomics. The discussion will be about the general problem of how we try to put [Humpty Dumpty](https://en.wikipedia.org/wiki/Humpty_Dumpty) back together again; i.e. how do we form protein expression values from measurements of peptide spectrum matches (PSMs) or MS1 features.
@@ -105,7 +97,7 @@ The razor peptide concept implemented in Proteome Discover, MaxQuant, and other 
 
 The discussion so far has not had included much of anything about quantitative data. It has all been about how we define the relationships between peptides and proteins in shotgun experiments. The process of going from MS2 spectra to PSMs to peptides to proteins creates a variety of contexts that affect how we defined shared and unique peptide status. At the end of all of this, we finally know enough about the information content of each peptide that we can decide what to do with their associated quantitative data.
 
-> You can think of the protein inference and definitions of unique peptides in the proper context as creating a scaffolding that we can add the quantitative measurements to. There are differentially expressed features in datasets that are not identified. As techniques have improved and larger fractions of data have assigned PSMs, we have moved from "quantify first and identify later" thinking to "just quantify what we identify". We have become quite dependent on protein inference informing and guiding shotgun quantitative experiments. 
+> You can think of the protein inference and definitions of unique peptides in the proper context as creating a scaffolding that we can add the quantitative measurements to. There are differentially expressed features in datasets that are not identified. As techniques have improved and larger fractions of data have assigned PSMs, we have moved from "quantify first and identify later" thinking to "just quantify what we identify". We have become quite dependent on protein inference informing and guiding shotgun quantitative experiments.
 
 We are now faced with many choices about how to proceed with the quantitative data. A motivation for this blog was to shed some light on how discovery quantification differs from more targeted quantification strategies. In discovery phase, we are trying to learn more about our system so we can form more directed hypotheses. Only when we have some concrete hypotheses can we formulate more precise questions to guide targeted studies. There may be many situations where the strategies discussed below will be wrong and lead to incorrect conclusions. A very interesting question is whether or not there is some signature in discovery data that can suggest when its assumptions are being violated. The first thing is to try and describe how to aggregate PSM-level quantitative data into protein-level summaries. We have to understand that before we can dissect the fundamental differences between discovery and target quantification strategies.
 
