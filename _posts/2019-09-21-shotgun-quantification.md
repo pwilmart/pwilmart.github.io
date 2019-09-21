@@ -151,7 +151,7 @@ These are the rolled-up protein intensities of the three extra standard channels
 
 After IRS (which did not use these three channels), we now have very consistent protein totals over the upper 4 decades of intensity. It is only in the lowest decade that we start to see some deviations from identical. The samples were urine exosomes from human subjects and there was a great deal of biological variability.
 
----
+Each TMT plex was a 30-fraction experiment. The numbers of PSMs associated with each protein will be different in each experiment. We are not imposing **any** requirements that we see the same peptide sequences for each protein. The sets of PSMs could be different between experiments and it would not matter as long as we still get a protein total intensity. This is why I said that "sum everything up" methods are more forgiving.
 
 ## Did I avoid the whole point here?
 
