@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How do we try and put Humpty Dumpty back together?"
+title: "How do we put Humpty Dumpty back together?"
 date: 2019-09-20
 ---
 
