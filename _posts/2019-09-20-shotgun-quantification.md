@@ -127,6 +127,9 @@ If we cut the signals in half again, we now have just 5 peptides. Any more decre
 
 I made the argument at the beginning that shotgun quantification is just weighted spectral counting. So we will do the most simple thing that we can and just sum up the intensities for all of the peptides that are above the detection limit into protein total intensities. In the Full case, we sum up 13 intensities, in the Half case we sum 9 intensities, and in the Quarter case we sum 5 peptides.
 
+---
+
+---
 
 ## Extra content from previous blog
 
