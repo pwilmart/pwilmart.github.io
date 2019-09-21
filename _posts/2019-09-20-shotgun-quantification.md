@@ -85,11 +85,11 @@ With the typical numbers mentioned above, the 1000 incorrect PSMs would result i
 
 The proteins that the measured data suggest are present in our sample is not a simple subset of the starting FASTA file. We have peptide ambiguity, we have partial sequence coverage, and we have peptide errors.
 
-![full](images_20190920/full.png)
+![full](https://pwilmart.github.io/images/full.png)
 
-![half](images_20190920/half.png)
+![half](https://pwilmart.github.io/images/.png)
 
-![quarter](images_20190920/quarter.png)
+![quarter](https://pwilmart.github.io/images/quarter.png)
 
 
 
