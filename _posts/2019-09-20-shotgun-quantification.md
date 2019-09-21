@@ -141,34 +141,31 @@ If you have done any normalization methods work, you learn to ignore the protein
 
 ## Some sanity checks from TMT data
 
+This [paper by D'Angelo et. al](https://pubs.acs.org/doi/abs/10.1021%2Facs.jproteome.6b01050) added 13 spike-in proteins to an E. coli digest background. Ten TMT channels were used and the data was acquired using the SPS MS3 method and a more conventional MS2 method. [The notebook](https://pwilmart.github.io/TMT_analysis_examples/JPR-2017_E-coli_MS2-MS3.html) looks at the data characteristics for each acquisition mode and even uses IRS normalization to directly compare SPS MS3 data and MS2 data. We see (below) that the protein rollup data where we are measuring the same E. coli digest in each channel (the spike-in proteins were ignored) shows nearly identical intensities over wide dynamic range with some small deviations for proteins at lower abundance where the numbers of PSMs contributing to the protein totals becomes smaller.
+
 ![E. coli background](https://pwilmart.github.io/images/E_coli_no-change.png)
 
----
+Internal reference scaling (IRS) is a method I developed to put multiple TMT plexes onto a common intensity scale ([described here](https://pwilmart.github.io/TMT_analysis_examples/IRS_validation.html)). The data for this notebook is from a 60-sample study that needed seven 11-plex experiments to accommodate all of the samples and internal standards. We had three extra channels (one each in three of the plexes) where we labeled an extra replicate of the pooled internal standard. We can use these three channels as [canaries in a coal mine](https://en.wiktionary.org/wiki/canary_in_a_coal_mine) spy on the IRS procedure.
+
+This tests protein rollup because the abundance estimates for each protein in the pooled standard (over the full range of detection) the sums of the unique peptide reporter ion intensities. Those estimates have to be accurate to correct for the random MS2 sampling and make the measurements of the pooled standards the same in each TMT plex. Since we are using two channels of each TMT for the pooled standards that drive the IRS corrections, we cannot use them for any quality control. They end up very similar after IRS mostly because of the mathematics (see this [notebook](https://pwilmart.github.io/TMT_analysis_examples/auto_finder_BIND-473.html) for more on that point). However, we have the three extra channels that are independent of the channels used for the IRS method.
+
+![Three before IRS](https://pwilmart.github.io/images/three-before-IRS.png)
+
+These are the rolled-up protein intensities of the three extra standard channels after the best conventional normalization methods. These are supposed to be identical samples but the sample to sample scatter plots are terrible. This distortion is because MS2 scans are not always at the same relative elution time (like the apex). The IRS method corrects for that specifically.
+
+![Three after IRS](https://pwilmart.github.io/images/three-after-IRS.png)
+
+After IRS (which did not use these three channels), we now have very consistent protein totals over the upper 4 decades of intensity. It is only in the lowest decade that we start to see some deviations from identical. The samples were urine exosomes from human subjects and there was a great deal of biological variability.
 
 ---
 
-## Extra content from previous blog
+## Did I avoid the whole point here?
 
-I want to clearly state that detecting proteoforms, detecting alternative slicing, detecting disease associated mutations, detecting novel protein processing, and detecting novel post-translational modifications are all **extremely important**. However, those are advanced proteomics topics. They are much harder than you have been told. The game is not over once you find one putative PSM that suggests something interesting. That is really more like the pregame warmup. You have to have a hypothesis and an experimental design with controls. You have to **validate everything**. You have to bust your butt to try and prove yourself wrong.
+Disclaimer: these examples completely fail to shed any light on how isoform differences, PTM differences, or protein truncation differences between conditions can completely screw up protein rollup results. They do demonstrate that protein abundances estimated from protein rollup are quite accurate if none of that **real world** stuff is happening.
 
-## Do not bite off more than you can chew
+Expression studies are trying to compare protein abundance measures between samples. Shotgun techniques are looking at pieces of proteins. The unmodified peptides from a canonical sequence database search will constitute the vast majority of the peptide signals for each protein and give good protein abundance estimates (after rollup) in many (maybe most) cases. The assumptions are many: that modifications are substoichiometric without enrichment and can be ignored, that protein isoforms do not have detectible distinguishable peptides unless those proteins are very abundant and the sequence coverage is high, etc. 
 
-A protein expression study is about comparing protein abundance measures between samples. Shotgun techniques are looking at pieces of proteins. The unmodified peptides from a canonical sequence will constitute the vast majority of the peptide signals from each protein. I do not want to burst bubbles here, but that is the reality. Modifications are substoichiometric without enrichment. Most protein isoforms do not have detectible distinguishable peptides unless those proteins are very abundant and the sequence coverage is high. There is nothing to be gained by looking for things that are not there or not abundant enough to matter.
-
-Every rule has exceptions. However, questions about isoforms, variants, PTMs, etc. are separate questions from differential protein expression. They should be explored in independent, separate analyses. If we had extensive PTMs in our samples and the PTMs varied by condition, then not specifying PTMs in the database search will bias the quantitative results. Studies with samples like that will be rare. Some characterization of samples for PTMs and how they vary by condition needs to be done first to see if a quantitative bottom up study can be done for those cases. If PTMs are going to be important, the more abundant one have to be determined and the quantitative experiment altered accordingly. A quantitative shotgun experiment has limitations and is not always the right thing to do. That is why there are other methods like top-down and targeted analyses.
-
-Use a protein grouping or clustering method to combine protein families that have high sequence homology instead of a razor peptide method. Some housekeeping genes have multiple coding regions that make identical or very similar sequences. This redundancy helps keep you alive. It can mean that protein members of families like alpha-tubulins, beta-tubulins, actins, histones, etc. can have few **non-shared** tryptic peptides. Razor peptide methods pick one protein of the family to get all of the shared peptides. The other family members just get a handful of their unique peptides and no shared peptides. That means that one family member gets large quantitative signals and the other family members get small, unreliable values. It is better to remove the poor quality family members by grouping the entire family into a single entity.
-
-## Keep it simple
-
-We need to have robust, simple lists of proteins and their quantitative estimates to compare many samples in typical studies. Aligning protein identifications between samples can be challenging and overly complete (large) protein FASTA files can make that harder. Some protein grouping steps can simplify protein lists when canonical databases are not an option.
-
-Simplified protein lists not only make the differential expression testing easier to do and interpret, most annotation information is gene-centric. It makes sense to have a one gene, one protein relationship when adding annotations. If ortholog mapping needs to be done to a better-annotated species, mapping canonical sequences to canonical sequences is much easier. Most downstream steps rely on minimal ambiguity to work well. Yes, there is some loss of information associated with minimizing ambiguity. There is also some compromise in quantifying **proteins** from their **tryptic peptides**. Some consistency in the compromises of the analysis across the pipeline steps is the workable approach.
-
-## Final Thoughts
-
-I am not proposing that we all do only the lowest common denominator experiments. What fun is that? I am proposing that there is no such thing as a **one and done** analysis. Start with a simple search if doing protein expression and see what you get. Explore other things with additional analyses. Are there non-tryptic peptides in my sample? How abundant are they? Can I ignore them? Are the lots of PTMs in my sample? How abundant are they? Can I ignore them? Are there different protein isoforms present? How abundant are they? Can I ignore them?
-
+Questions about isoforms, variants, PTMs, etc. are really something we explore after we have learned something from simpler differential protein expression studies. They should be addressed in independent, separate analyses. A quantitative shotgun experiment has limitations and is not always the right thing to do. That is why there are other methods like top-down and targeted analyses. If you already know what you are looking for, then the shotgun quantification fishing trip is probably a waste of vacation time.
 
 ---
 
