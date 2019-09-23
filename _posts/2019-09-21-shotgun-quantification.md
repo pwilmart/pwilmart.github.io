@@ -6,11 +6,16 @@ date: 2019-09-21
 
 ## Introduction
 
-This second installment on data plumbing will tackle the interplay between [protein inference](https://www.mcponline.org/content/4/10/1419.short) and quantitative data rollup in shotgun proteomics. The discussion will be about the general problem of how we try to put [Humpty Dumpty](https://en.wikipedia.org/wiki/Humpty_Dumpty) back together again; i.e. how do we form protein expression values from measurements of peptide spectrum matches (PSMs) or MS1 features.
-
 > Note: "." is used for the decimal point and "," is the thousands separator.
 
-## Shotgun quantification methods are all the same
+
+This second installment on data plumbing will tackle the interplay between [protein inference](https://www.mcponline.org/content/4/10/1419.short) and quantitative data rollup in shotgun proteomics. The discussion will be about the general problem of how we try to put [Humpty Dumpty](https://en.wikipedia.org/wiki/Humpty_Dumpty) back together again; i.e. how do we form protein expression values from measurements of peptide spectrum matches (PSMs) or MS1 features.
+
+We frequently do these discovery shotgun quantification experiments when we are characterizing systems where there is not much prior knowledge. We want to get some insight into biological process and pathway differences in response to system perturbations. Most biological effects occur via multi-protein mechanisms (pathways, complexes, and interactions). We tend to focus less on single, specific proteins so that we can get global views of the system.
+
+These global approaches make many simplifying assumptions, and can, therefore, have some limitations. We need to review the basic steps in shotgun quantification first in order to understand when limitations might arise. We will talk some about limitations at the end.
+
+## Shotgun quantification methods are all similar
 
 Many people might think [spectral counting](https://pubs.acs.org/doi/abs/10.1021/ac0498563), [intensity-weighted spectral counting](https://pubs.acs.org/doi/abs/10.1021/pr401017h) (also [this reference](https://onlinelibrary.wiley.com/doi/abs/10.1002/pmic.200700426)), [accurate mass and time](https://onlinelibrary.wiley.com/doi/abs/10.1002/mas.20071) (AMT) tag methods, [MaxQuant LFQ](https://www.mcponline.org/content/13/9/2513.short), [MaxQuant iBAQ](https://www.nature.com/articles/nature10098), [SILAC](https://www.mcponline.org/content/1/5/376.short), [iTRAQ](https://www.mcponline.org/content/3/12/1154.short), and [TMT](https://pubs.acs.org/doi/abs/10.1021/ac0262560) are all rather different quantitative proteomics techniques. If you take a step back, no - a bigger step, keep going, STOP!, you might see that all shotgun quantitation methods are just weighted spectral counting with different weights. First, I need to climb onto my [soapbox](https://en.wikipedia.org/wiki/Soapbox) and
 
@@ -157,14 +162,25 @@ After IRS (which did not use these three channels), we now have very consistent 
 
 Each TMT plex was a 30-fraction experiment. The numbers of PSMs associated with each protein will be different in each experiment. We are not imposing **any** requirements that we see the same peptide sequences for each protein. The sets of PSMs could be different between experiments and it would not matter as long as we still had a protein total intensity. This is why I said that "sum everything up" methods are more forgiving.
 
-## Did I avoid the whole point here?
+## When are these assumptions violated?
 
-Disclaimer: these examples completely fail to shed any light on how isoform differences, PTM differences, or protein truncation differences between conditions can completely screw up protein rollup results. They do demonstrate that protein abundances estimated from protein rollup are quite accurate if none of that **real world** stuff is happening.
+Shotgun quantification studies are often trying to compare protein abundance measures between samples. Shotgun techniques (by definition) are looking at pieces of proteins. We can only see the types of protein pieces that are in the theoretical search space (that is how search engines work). Search space is defined by the protein sequences in the FASTA file and by the search engine parameters.
 
-Expression studies are trying to compare protein abundance measures between samples. Shotgun techniques are looking at pieces of proteins. The unmodified peptides from a canonical sequence database search will constitute the vast majority of the peptide signals for each protein and give good protein abundance estimates (after rollup) in many (maybe most) cases. The assumptions are many: that modifications are substoichiometric without enrichment and can be ignored, that protein isoforms do not have detectible distinguishable peptides unless those proteins are very abundant and the sequence coverage is high, etc.
+The FASTA file might be a canonical set of gene products (one representative protein for each gene). That would probably exclude any potential isoform information. Even if isoforms are present in the FASTA file, low sequence coverage for most proteins would not result in isoform distinguishing peptides to be seen for the majority of the proteins. Isoforms for most proteins will be invisible after digestion because the chance of detecting distinguishing peptides is too low.
 
-Questions about isoforms, variants, PTMs, etc. are really something we should explore after we have learned something from simpler differential protein expression studies. They should be addressed in independent, separate analyses. A quantitative shotgun experiment has limitations and is not always the right thing to do. That is why there are other methods like top-down and targeted analyses. If you already know what you are looking for, then the shotgun quantification fishing trip is probably a waste of your vacation time.
+Including non-enzymatic cleavage sites and/or large numbers of post-translational modifications dramatically increases the number of peptides in the theoretical search space. This can make searches too slow to be practical and can increase the chances for false positive results. These two factors are independent so their negative effects are multiplicative. For PTM searches, there can be be instrumental requirements (fragmentation modes, accurate fragment ion masses, etc.) that might be at odds with the quantification method. We need very specific instrument requirements to do [SPS MS3 TMT](https://pubs.acs.org/doi/abs/10.1021/ac502040v), for example.
+
+We need to start with some sort of a lowest common denominator situation and see where to go from there. That might be using a canonical FASTA file, full or semi-tryptic cleavage, static modifications for any labels, and unmodified peptides with variable oxidized methionine. These parameters should catch most of the protein pieces so that the rolled up protein values will be good estimates of the protein abundance for the vast majority of the proteins in these discovery experiments.
+
+There are always exceptions to rules. We could have a protein become extensively modified in disease, such as Tau protein in Alzheimer's disease. We might see a decrease in total protein signal because we have lost unmodified peptide signal to new m/z values (the modified forms) that we cannot identify because of the search engine parameters. The decrease in unmodified peptide abundance can be used to estimate the total amount of modified forms ([FLEXITau method](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5808556/)). If we had unchanged expression of Tau protein between conditions, but had an increase in modified peptide forms, we would observe a decrease in protein signal. That could be mis-interpreted as decreased protein expression instead on an increase in PTMs.
+
+We can also have protein processing (truncations) associated with disease. We might have an actual difference in the protein sequence present in the samples from different conditions. A shorter protein form would likely have fewer peptides and a rolled up protein signal could be smaller that from a longer protein (assuming equal expression levels). We might again see a pattern that looks like a decrease in protein expression that is really an increase in truncation.
+
+We could probably think of situations like these [until the cows come home](https://www.urbandictionary.com/define.php?term=until%20the%20cows%20come%20home). We need to better understand and communicate potential limitations to clients and collaborators. In a core facility, it is impossible to have the detailed domain knowledge for every system to explore all of the possible limitations. The clients, who are the experts on their systems, are the ones who need to think about these issues. They need some working knowledge of the shotgun quantification process and its assumptions to decide if it is appropriate for the questions they want answered.     
+
+Questions about isoforms, variants, PTMs, etc. are really things to be explored after we have learned something from simpler differential protein expression studies. They need to be addressed in separate follow up experiments and analyses. A quantitative shotgun experiment is not always the best thing to do (and certainly not the only thing to do). That is why there are other methods like top-down and targeted analyses. If you already know what you are looking for, then the shotgun fishing trip is probably a waste of your vacation time.
 
 ---
 
+Thanks for reading.
 Phil Wilmarth, September 21, 2019.
