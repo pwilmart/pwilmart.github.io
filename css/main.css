@@ -25,19 +25,19 @@ h1 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-    font-size: 1.3em;
-    line-height: 1.4em;
+    font-size: 1.2em;
+    line-height: 1.25em;
     color: #000000;
 }
 ul, ol {
-	font-size: 1.2em;
-	line-height: 1.3em;
+	font-size: 1.1em;
+	line-height: 1.2em;
 	color: #808080;
 	}
 table {
-	font-size: 1.2em;
-	line-height: 1.2em;
-	color: #000000;
+	font-size: 1.1em;
+	line-height: 1.1em;
+	color: #808080;
 	}
 footer {
     border-top: 1px solid #d5d5d5;
