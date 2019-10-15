@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to keep your pipeline from getting clogged"
+title: "Keeping your pipeline from getting clogged"
 date: 2019-09-08
 ---
 
