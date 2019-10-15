@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Phil Wilmarth: test blog"
+title: "First test blog"
 date: 2018-12-02
 ---
 
