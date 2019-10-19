@@ -4,7 +4,7 @@ title: "Ortholog mapping and annotations"
 date: 2019-10-14
 ---
 
-Your proteomics experiment worked really well. You identified more proteins than the number of lies conservative politicians can tell in a day. The quantification even worked - or at least the 95% confidence interval surrounding the probability that it worked did not include zero. Now you want to know something about those proteins, something like: what are they and what do they do?
+Your proteomics experiment worked really well. You identified more proteins than the number of lies conservative politicians can tell in a day. The quantification even worked - or at least the 95% confidence interval surrounding the probability that it worked did not include zero. Now you want to know something about those proteins, something fancy like: what are they and what do they do?
 
 It seems every organism under the sun (and the sea) has a sequenced genome these days, so you can do amazing proteomics experiments on all kinds of samples. What do you do with all of the "uncharacterized proteins" that you identified? What is its uncharacterized biological function? Maybe it has other uncharacterized isoforms. Maybe it is involved in an uncharacterized signaling pathway. What if it forms an uncharacterized protein complex with other uncharacterized proteins to perform an essential uncharacterized function?
 
