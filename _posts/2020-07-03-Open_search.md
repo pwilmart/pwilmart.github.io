@@ -34,6 +34,8 @@ Parsimony thinking is also applicable. Is one more rare large deltamss PTM likel
 
 Now that we have more publicly available data, it may be possible to compile lists of common _in vitro_ artifacts seen across many datasets. Such knowledge could be helpful in interpreting open search results.
 
+One last thought, what are your goals for finding PTMs? For routine peptide identifications, we can tolerate a 1% FDR, or a 1 in 100 error rate. What do you need for PTMs? Are your PTMs 1 in 100 of the unmodified peptide? Is that above the error rate? Are you looking for a one in a million PTM? What kind of error control do you need to have confidence in that? Promiscuous chemical modifications can make a large number of distinct modified peptides. Counting PSMs might suggest they are a problem. They may not be collectively very abundant, though. We have tremendous sensitivity these days. We may identify very low abundance peptides. We need to be thinking in quantitative terms for PTMs, too. We need to measure PTM relative abundances with intensity scales rather than with spectral counting.
+
 I wanted to share some of my experience and draw attention to some earlier work that may be overlooked when learning and thinking about open searches. This is very hard work. Actually a bit too hard for the previous generations of instruments. New instrument advances are true game changers for PTM studies. Computational performance has also dramatically improved in the 15-20 years since we have been looking for modified peptides. Happy hunting!
 
 ---
