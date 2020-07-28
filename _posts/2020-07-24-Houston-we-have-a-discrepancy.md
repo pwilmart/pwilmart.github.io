@@ -8,7 +8,7 @@ date: 2020-07-28
 
 ### A little back story:
 
-Recently, a [new paper](https://www.mcponline.org/content/early/2020/07/17/mcp.RA120.002105) from Olga Vitek's group has been accepted at Molecular and Cellular Proteomics. It describes a new Bioconductor package called [MSstatsTMT](https://www.bioconductor.org/packages/release/bioc/html/MSstatsTMT.html) for analysis of TMT experiments. Among its features is support for multiple-plex TMT experiments. The package starts with low level TMT data, such as the PSM export file from Proteome Discoverer or the `evidence.txt` file from MaxQuant. A complicated linear modeling approach is used for the statistical testing.
+Recently, a [new paper](https://www.mcponline.org/content/early/2020/07/17/mcp.RA120.002105) from Olga Vitek's group describes a new Bioconductor package called [MSstatsTMT](https://www.bioconductor.org/packages/release/bioc/html/MSstatsTMT.html) for analysis of TMT experiments. Among its features is support for multiple-plex TMT experiments. The package starts with low level TMT data, such as the PSM export file from Proteome Discoverer or the evidence.txt file from MaxQuant. A complicated linear modeling approach is used for the statistical testing.
 
 TMT reagents have increased in multiplexing capacity steadily over the years from 6 to 16. Despite increased numbers of channels, many experiments can require more than one plex (plex: a single TMT labeling kit) to handle all of the samples. A simple experimental design and methodology for normalizing (sometimes called bridging) between plexes was described by Plubell, et al. in this [2017 paper](https://www.mcponline.org/content/16/5/873).
 
@@ -18,7 +18,7 @@ I first conceived of the Internal Reference Scaling (IRS) method in 2015, not lo
 
 One of the analyses I added this spring while working from home is some [metaplastic breast cancer data](https://github.com/pwilmart/Metaplastic-BC_PXD014414) from Alexey Nesvizhskii's group. I started with the RAW files from PXD014414 at PRIDE and processed the data with my open source [proteomics pipeline](https://github.com/pwilmart/PAW_pipeline). A detailed Jupyter notebook analyzing the major groups (normal tissue, triple negative breast cancer, and a few types of metaplastic breast cancer) can be found [here](https://pwilmart.github.io/Metaplastic-BC_PXD014414/PXD014414_comparisons_major.html). The data was SPS MS3 acquisition of 27 samples in 3 TMT 10-plexes.
 
-This data was also analyzed in the MSstatsTMT paper (called the `Human_3mix_balanced` dataset) and summarized in Figure 8. The authors also implemented a workflow similar to those I use called the *Sum+IRS+edgeR* and tallied some statistical testing results numbers for this data that I could compare to my re-analysis results.
+This data was also analyzed in the MSstatsTMT paper (called the "Human_3mix_balanced" dataset) and summarized in Figure 8. The authors also implemented a workflow similar to those I use called the *Sum+IRS+edgeR* and tallied some statistical testing results numbers for this data that I could compare to my re-analysis results.
 
 ### The test results:
 
