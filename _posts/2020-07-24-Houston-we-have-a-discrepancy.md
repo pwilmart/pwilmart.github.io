@@ -54,7 +54,7 @@ The t-test is a plain 2-sample, 2-tailed test with equal variance. I can also us
 
 The numbers of DE candidates from Figure 8A (the first table above) are in the same ballpark and have an average total of 596. The number for my starting data are also similar (ignoring the Bonferroni correction numbers) and average 1456. That is a factor of 2.5 more DE candidates. The number of putative testable proteins is also rather different: 5728 versus 4132. My testing input starts with 72% as many proteins. The extra 1600 testable proteins for MSstatsTMT might have been expected to add to the DE candidate numbers.
 
-This situation is like throwing three darts at a dartboard to see which is closer to the bullseye. However, the three darts all completely missed the dartboard and stuck in the wall instead. You can still see which one was closest to the bullseye, but what is the point? Why are the results in MSstatsTMT so awful?
+This situation is like throwing three darts at a dartboard to see which is closer to the bullseye. However, the three darts all completely missed the dartboard and stuck in the wall instead. You can still see which one was closest to the bullseye, but what is the point? Why are the results in MSstatsTMT so different?
 
 For this dataset, the starting data (the RAW files) is the same. Things diverge after that. We have two different search engines (MSFragger versus Comet) using different FASTA files (a large, redudant database versus a canonical database). The other (big picture) search setting are similar. PSM FDR control is a little different (modeling versus empirical). There is quite a bit of filtering of data described in the MSstatsTMT paper. Long story short, the starting data for the statistical testing presented in Figure 8A is different from the starting data for the statistical testing that I did. I think the different starting data is where the discrepancy lies.
 
@@ -78,13 +78,13 @@ Once you let go of the notion that important variance information is going to be
 
 ### Conclusions
 
-I feel that MSstatsTMT is conceptually flawed in its current form and I would not recommend using a tool that gives dramatically inferior results. Protein inference concepts and protein summarization could probably be fixed in MSstatsTMT. I shudder to think about trying to code protein inference in R, though.
+I would not recommend using MSstatsTMT in its current form starting with PSM-level data. Protein inference concepts and protein summarization could probably be fixed in MSstatsTMT. I shudder to think about trying to code protein inference in R, though.
 
-This raises the bigger issue in my mind. Both Proteome Discoverer and MaxQuant provide protein level reporter ion summaries based on implemented protein inference algorithms with correct definitions of shared and unique peptides. I do not understand why one would not start with the protein level data for the DE testing. Maybe there is that option in MSstatsTMT. I have not read everything at Bioconductor. I am just going from what was in the manuscript. Then again, you could easily use limma starting with a protein summary file.
+This raises the bigger issue in my mind. Both Proteome Discoverer and MaxQuant provide protein level reporter ion summaries based on implemented protein inference algorithms with correct definitions of shared and unique peptides. I do not understand why one would not start with the protein level data for the DE testing. Maybe there is that option in MSstatsTMT. I have not read everything at Bioconductor. I am just going from what was in the manuscript. Then again, you could just use limma starting with a protein summary file.
 
-There is some discussion of missing data modeling in the MSstatsTMT manuscript. There is not really any missing data problem in TMT data, and perceptions that there are are based on incorrect assumptions. The lowest abundance proteins contribute the vast majority of the missing data. However, those proteins are not abundant enough to be quantified. When they are excluded, the missing data problem mostly goes away.
+There is some discussion of missing data modeling in the MSstatsTMT manuscript. There is not really any missing data problem in TMT data, and perceptions that is a problem are based on poor assumptions. The lowest abundance proteins contribute the vast majority of the missing data. However, those proteins are not abundant enough to be quantified. If they are excluded, the missing data problem mostly goes away.
 
-I do not like self-promoting. I have benchmarked my pipeline against both Proteome Discoverer and MaxQuant. It just works a lot better. At this point in time, you will simply get better TMT results if you use my pipeline and analysis methods.     
+I have benchmarked my pipeline against both Proteome Discoverer and MaxQuant. It just works a lot better. You will probably get better TMT results if you use my pipeline and analysis methods.     
 
 ---
 
