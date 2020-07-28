@@ -70,7 +70,7 @@ I have a suspicion that only unique peptides were used for quantitation in MSsta
 
 ### Why is MSstatsTMT starting with PSM-level data?
 
-There are many upstream processing steps to produce a count table in an RNA-seq experiment. I do not know if every statistician that tests for differential gene expression asks for all of the lower level data that contributed to the final count table, but every time I have given a protein expression table to a statistician at OHSU, the first thing they ask for is the PSM data. This is always a source of friction. Protein inference and protein summarization is a complicated topic that few statisticians have studied and are qualified to tackle. Note: many are perfectly capable of doing so.
+There are many upstream processing steps to produce a count table in an RNA-seq experiment. I do not know if every statistician that tests for differential gene expression asks for all of the lower level data that contributed to the final count table, but every time I have given a protein expression table to a statistician at OHSU, the first thing they ask for is the PSM data. This is always a source of friction. Protein inference and protein summarization is a complicated topic that few statisticians have studied and are qualified to tackle. I know there are many who would be perfectly capable of doing so.
 
 I have never understood why there is such fascination with noisy scan level data. If you are curious about what PSM, peptide, and protein level TMT data is like, please see this [dilution series notebook](https://pwilmart.github.io/TMT_analysis_examples/MAN1353_peptides_proteins.html). Aside from the clearly better protein-level data, we are talking about shotgun proteomics data. The numbers of PSMs per protein are all over the map. They depend on the samples, the separation scheme, and the instrument method. In most samples, there are a few proteins with many PSMs, and most of the proteins with one, two, or three PSMs. Concepts like median value summarization do not make much sense to me until you get to at least 5 observations. Summation is simple and effective; it is essentially a weighted measure (larger values contribute more to the totals).
 
@@ -78,13 +78,13 @@ Once you let go of the notion that important variance information is going to be
 
 ### Conclusions
 
-I would not recommend using MSstatsTMT in its current form starting with PSM-level data. Protein inference concepts and protein summarization could probably be fixed in MSstatsTMT. I shudder to think about trying to code protein inference in R, though.
+I cannot recommend MSstatsTMT in its current form starting with PSM-level data. Protein inference concepts and protein summarization could probably be fixed in MSstatsTMT. I shudder to think about trying to code protein inference in R, though.
 
 This raises the bigger issue in my mind. Both Proteome Discoverer and MaxQuant provide protein level reporter ion summaries based on implemented protein inference algorithms with correct definitions of shared and unique peptides. I do not understand why one would not start with the protein level data for the DE testing. Maybe there is that option in MSstatsTMT. I have not read everything at Bioconductor. I am just going from what was in the manuscript. Then again, you could just use limma starting with a protein summary file.
 
-There is some discussion of missing data modeling in the MSstatsTMT manuscript. There is not really any missing data problem in TMT data, and perceptions that is a problem are based on poor assumptions. The lowest abundance proteins contribute the vast majority of the missing data. However, those proteins are not abundant enough to be quantified. If they are excluded, the missing data problem mostly goes away.
+There is some discussion of missing data modeling in the MSstatsTMT manuscript. There is not really much of a missing data problem in TMT data, and perceptions that is a problem are based on poor assumptions. The lowest abundance proteins contribute the vast majority of the missing data. However, those proteins are not abundant enough to be quantified. If they are excluded, the missing data problem mostly goes away.
 
-I have benchmarked my pipeline against both Proteome Discoverer and MaxQuant. It just works a lot better. You will probably get better TMT results if you use my pipeline and analysis methods.     
+I have benchmarked my pipeline against both Proteome Discoverer and MaxQuant. It just works a lot better. You will probably get better TMT results (compared to any other current method) if you use my pipeline and analysis methods.     
 
 ---
 
