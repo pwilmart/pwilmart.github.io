@@ -78,11 +78,11 @@ Once you let go of the notion that important variance information is going to be
 
 ### Conclusions
 
-I feel that MSstatsTMT is conceptually flawed in its current form and I would not recommend using a tool that gives dramatically inferior results compared to better, established methods. Protein inference concepts and protein summarization could probably be fixed in MSstatsTMT. I shudder to think about trying to code protein inference in R, though.
+I feel that MSstatsTMT is conceptually flawed in its current form and I would not recommend using a tool that gives dramatically inferior results. Protein inference concepts and protein summarization could probably be fixed in MSstatsTMT. I shudder to think about trying to code protein inference in R, though.
 
-This raises the bigger issue in my mind. Both Proteome Discoverer and MaxQuant provide protein level reporter ion summaries based on implemented protein inference algorithms with correct definitions of shared and unique peptides. I do not understand why one would not start with the protein level data for the DE testing. Then again, that can be easily done with limma. There may not have been a problem here that needed to be solved.
+This raises the bigger issue in my mind. Both Proteome Discoverer and MaxQuant provide protein level reporter ion summaries based on implemented protein inference algorithms with correct definitions of shared and unique peptides. I do not understand why one would not start with the protein level data for the DE testing. Maybe there is that option in MSstatsTMT. I have not read everything at Bioconductor. I am just going from what was in the manuscript. Then again, you could easily use limma starting with a protein summary file.
 
-You might have also noticed that there is some discussion of missing data modeling in the MSstatsTMT manuscript. There is no missing data problem in TMT data and perceptions that there are are based on incorrect assumptions. The lowest abundance proteins contribute the vast majority of the missing data. However, those proteins are not abundant enough to be quantified. When they are excluded, the missing data problem goes missing.
+There is some discussion of missing data modeling in the MSstatsTMT manuscript. There is not really any missing data problem in TMT data, and perceptions that there are are based on incorrect assumptions. The lowest abundance proteins contribute the vast majority of the missing data. However, those proteins are not abundant enough to be quantified. When they are excluded, the missing data problem mostly goes away.
 
 I do not like self-promoting. I have benchmarked my pipeline against both Proteome Discoverer and MaxQuant. It just works a lot better. At this point in time, you will simply get better TMT results if you use my pipeline and analysis methods.     
 
