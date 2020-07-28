@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "That is some discrepancy..."
+title: "That is some discrepancy!"
 date: 2020-07-28
 ---
 
@@ -60,7 +60,7 @@ For this dataset, the starting data (the RAW files) is the same. Things diverge 
 
 ### Shared and unique peptides are the key
 
-Section 3.4 in Raviteja Madhira's [Masters thesis](https://digitalcollections.ohsu.edu/concern/etds/c534fp149) discusses the concept of quantitative information content (QIC). The underlying theoretical peptide redundancy/structure of a particular protein FASTA file and rules for protein inference are intimately coupled. You have to understand the underlying structure of protein databases to do proteomics. If you think you would benefit from more reading on this topic, I highly recommend Ravi's thesis. You can also find useful information in the [fasta_utilitiesrepo](https://github.com/pwilmart/fasta_utilities).
+Section 3.4 in Raviteja Madhira's [Masters thesis](https://digitalcollections.ohsu.edu/concern/etds/c534fp149) discusses the concept of quantitative information content (QIC). The underlying theoretical peptide redundancy/structure of a particular protein FASTA file and rules for protein inference are intimately coupled. You have to understand the underlying structure of protein databases to do proteomics. If you think you would benefit from more reading on this topic, I highly recommend Ravi's thesis. You can also find useful information in the [fasta_utilities repo](https://github.com/pwilmart/fasta_utilities).
 
 The basic concept of QIC (defined as the fraction of unique PSMs out of the total PSMs for a dataset) is that what we call unique or shared peptides depends on the context. We can only use unique peptides in quantitative studies, so the QIC is rather important. What are the relevant contexts? We start with the context of the original FASTA file. Peptides are unique if they map to just one protein sequence and shared if they map to more than one. Then we do protein inference according to the eloquent rules outlined in this [seminal paper](https://www.mcponline.org/content/4/10/1419.short) from 2005. After these basic parsimony rules, we have a list of the likely proteins (and groups of proteins) present in the sample. (Those lists used to be considerably smaller that the original FASTA file.) It is common practice to redefine the context for shared and unique peptides to the list of inferred proteins. This can change many shared peptides into unique peptides (in the new context) and increase the QIC. There are additional protein grouping methods, such as clustering in Mascot, grouping in Scaffold, and extended parsimony grouping in my pipeline. These can make yet another context where more shared peptides can become unique and QIC further increased.
 
