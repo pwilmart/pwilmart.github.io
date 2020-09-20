@@ -29,7 +29,16 @@ p {
     line-height: 1.25em;
     color: #000000;
 }
-ul, ol {
+blockquote {
+	font-size: 1.1em;
+	line-height: 1.2em;
+	color: #808080;
+	}
+code {
+	font-size: 1.1em;
+	line-height: 1.2em;
+	color: #808080;
+	}ul, ol {
 	font-size: 1.1em;
 	line-height: 1.2em;
 	color: #808080;
