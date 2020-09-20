@@ -39,6 +39,7 @@ blockquote {
 
 blockquote p {
 	font-size: 1.0em;
+	font-style: italic;
 	line-height: 1.2em;
 	color: #808080;
 }
