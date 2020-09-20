@@ -36,14 +36,14 @@ p {
     color: #000000;
 }
 
-blockquote {
+blockquote p {
 	font-size: 1.1em;
 	line-height: 1.2em;
 	color: #808080;
 }
 	
 code {
-	font-size: 1.1em;
+	font-size: 1.3em;
 	line-height: 1.2em;
 	color: #808080;
 }
