@@ -31,14 +31,14 @@ h1 {
 }
 
 blockquote {
-	font-size: 1.0em;
+	font-size: 1.2em;
 	font-style: italic;
 	line-height: 1.2em;
 	color: #808080;
 }
 
 blockquote p {
-	font-size: 1.0em;
+	font-size: 1.2em;
 	font-style: italic;
 	line-height: 1.2em;
 	color: #808080;
@@ -49,32 +49,32 @@ p {
     line-height: 1.25em;
     color: #000000;
 }
-	
+
 code {
 	font-size: 1.3em;
 	line-height: 1.2em;
 	color: #808080;
 }
-	
+
 ul, ol {
 	font-size: 1.1em;
 	line-height: 1.2em;
 	color: #808080;
 }
-	
+
 table {
 	font-size: 1.1em;
 	line-height: 1.1em;
 	color: #808080;
 }
-	
+
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
 }
 
-ul.posts { 
-    margin: 20px auto 40px; 
+ul.posts {
+    margin: 20px auto 40px;
     font-size: 1.3em;
 }
 
