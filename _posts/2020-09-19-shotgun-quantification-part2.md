@@ -47,7 +47,7 @@ Okay. We have eight mouse FASTA files. How do they compare? There are tools at h
 Database|Proteins|Tryptic Peptides|Non-redundant Peptides|Shared Peptide Fraction
 --------|--------|----------------|----------------------|-----------------------
 Swiss-Prot Canonical|17,053|2,062,581|2,009,613|1.9%
-Swiss-Prot Canonical+Isoforms|25,323|3,2000,117|2,058,426|32.3%
+Swiss-Prot Canonical+Isoforms|25,323|3,200,117|2,058,426|32.3%
 FTP Reference Canonical|21,989|2,467,386|2,343,477|2.9%
 FTP Reference Canonical+Isoforms|63,739|6,129,368|2,599,761|56.3%
 UP000000589 Canonical|55,471|4,992,259|2,565,266|47.2%
@@ -114,6 +114,7 @@ The `Leading razor proteins` column has a single accession for each row, so the 
 
 
 #### Based on `Proteins` column:
+
 Database|Total Rows|Unique Rows|QIC
 --------|----------|-----------|---
 Swiss-Prot Canonical|53,872|50,349|93.5%
@@ -128,6 +129,7 @@ Swiss-Prot+TrEMBL Canonical+Isoforms|55,171|7,866|14.3%
 <br />
 
 #### Based on `Leading proteins` column:
+
 Database|Total Rows|Unique Rows|QIC
 --------|----------|-----------|---
 Swiss-Prot Canonical|53,872|51,492|95.6%
@@ -146,6 +148,7 @@ Swiss-Prot+TrEMBL Canonical+Isoforms|55,171|50,737|92.0%
 We can count total MS1 intensity instead of rows. This would be like LFQ intensities.
 
 #### Based on `Proteins` column:
+
 Database|Total MS1 Intensity|Unique MS1 Intensity|QIC
 --------|----------|-----------|---
 Swiss-Prot Canonical|3,834,929,859,686|3,068,264,365,266|80.0%
@@ -160,6 +163,7 @@ Swiss-Prot+TrEMBL Canonical+Isoforms|3,820,561,142,258|388,392,323,450|10.2%
 <br />
 
 #### Based on `Leading proteins` column:
+
 Database|Total MS1 Intensity|Unique MS1 Intensity|QIC
 --------|----------|-----------|---
 Swiss-Prot Canonical|3,834,929,859,686|3,221,253,168,216|84.0%
@@ -178,6 +182,7 @@ Swiss-Prot+TrEMBL Canonical+Isoforms|3,820,561,142,258|2,844,596,073,438|74.5%
 We can count total reporter intensity instead of rows. This would be for TMT experiments.
 
 #### Based on `Proteins` column:
+
 Database|Total MS1 Intensity|Unique MS1 Intensity|QIC
 --------|----------|-----------|---
 Swiss-Prot Canonical|685,289,186|608,855,857|88.8%
@@ -192,6 +197,7 @@ Swiss-Prot+TrEMBL Canonical+Isoforms|692,454,101|84,342,052|12.2%
 <br />
 
 #### Based on `Leading proteins` column:
+
 Database|Total MS1 Intensity|Unique MS1 Intensity|QIC
 --------|----------|-----------|---
 Swiss-Prot Canonical|685,289,186|630,636,056|92.0%
