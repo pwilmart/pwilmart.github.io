@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Unique peptides and shotgun quantification."
+title: "Unique peptides and shotgun quantification"
 date: 2020-09-19
 ---
 
