@@ -4,13 +4,11 @@ title: "Go big or go home?"
 date: 2021-04-22
 ---
 
-# Go big or go home?
-
 A comparison of narrow parent ion mass tolerances and wide parent ion mass tolerances.
 
 ## Introduction
 
-Back on March 26, 2021, I posted a Twitter poll asking what parent ion mass tolerance people though would give the best search engine results. There were 193 votes cast:
+Back on March 26, 2021, I posted a Twitter poll asking what parent ion mass tolerance people thought would give the best search engine results. There were 193 votes cast:
 
 Tolerance|Votes
 ---------|-----
@@ -19,7 +17,7 @@ Tolerance|Votes
 1.25 Da|8.8%
 Something else|13.5%
 
-I occasionally read the literature so I knew what results I was going to see. The narrow tolerance search has won "the Franchise Wars" (movie quite from Demolition Man), so to speak.
+I occasionally read the literature, so I knew what results I was going to see. The narrow tolerance search has won "the Franchise Wars" (movie quote reference from Demolition Man), so to speak.
 
 The Orbitraps from Thermo were the first wave in high resolution, high mass accuracy instruments to gain popularity. Previous Thermo instruments had been more "mass suggestion" spectrometers and one of the first things Thermo users did with Orbitraps was to adapt previous proteomics tools like SEQUEST to this new world. The first generation instruments were hybrids with the Orbitrap analyzer frequently used for survey scans and the linear ion trap used for the fragmentation and MS2 analysis. This created a situation where the MS2 spectra were largely unchanged from older instruments but the survey scans were very different.
 
@@ -29,11 +27,13 @@ The early tools and tricks of the trade did surprisingly well with nominal masse
 
 The answer was that wide tolerance searches performed better. However, that was so long ago that the computers were evolutionally closer to slide rules than to today's super computers that also function as telephones. Narrow tolerance searches were faster. The convenience of faster searches is what tipped the scales. Convenience is the only factor that drives wide adoption of new tech. And that is where we are today. Sitting in front of idle computers that are hundreds of times faster than a decade ago because the narrow tolerance search finished while you blinked. Now that speed is irrelevant for most uses, maybe it is time to revisit the question of what parent ion mass tolerance performs best for basic uses?
 
+> There was a proteomics field that predates Orbitraps. I know, that is crazy talk, but it is true. We all wore tweed jackets, smoked pipes, had mustaches, and lived in brick building basements (mostly in the UK). No wait, that was the mass spec world before proteomics discovered proteins...
+
 ## What data to use?
 
 Now that we have enormous public data repositories, finding data to use to answer questions is no longer a problem. Do we use some artificial concoction because we think we can predict the outcome? Do we use yeast or HeLa cells? (I think yeast and HeLa cells make perfect proteomics datasets as part of their normal cell cycles.) Or do we go all in with less than perfect real world samples? Check out the blog post title if you are unsure of the answer.
 
-How about a wide dynamic range biological fluid (urine) from a rarely studied organism (California sea lions) that we know very little about ([PXD009019](https://www.ebi.ac.uk/pride/archive/projects/PXD009019))? That sounds perfect to me. I had already done a re-analysis of that data in [this repository](https://github.com/pwilmart/Sea_lion_urine_SpC).
+How about a wide dynamic range biological fluid (urine) from a rarely studied organism (California sea lions) that we know very little about? ([PXD009019](https://www.ebi.ac.uk/pride/archive/projects/PXD009019)) sounds perfect to me. I had already done a re-analysis of that data in [this repository](https://github.com/pwilmart/Sea_lion_urine_SpC).
 
 > Neely, B.A., Prager, K.C., Bland, A.M., Fontaine, C., Gulland, F.M. and Janech, M.G., 2018. Proteomic analysis of urine from California Sea Lions (Zalophus californianus): A resource for urinary biomarker discovery. Journal of proteome research, 17(9), pp.3281-3291.
 
@@ -43,7 +43,7 @@ Ten of the 19 samples were done in May 2017 and the other 9 were done in June. T
 
 The data was analyzed using the [PAW pipeline](https://github.com/pwilmart/PAW_pipeline). A general workflow diagram is shown below.
 
-![PAW workflow](images/parent_ion/PAW_workflow.png)
+![PAW workflow](https://pwilmart.github.io/images/PAW_workflow.png)
 
 Data conversion uses `MSConvert.exe` from the [Proteowizard Toolkit](http://proteowizard.sourceforge.net/download.html) and the [Comet search engine](http://comet-ms.sourceforge.net) (version 2016013). Both programs are Windows software and freely available. The rest of the downstream steps are written in Python 3.x and can be run on multiple platforms.
 
