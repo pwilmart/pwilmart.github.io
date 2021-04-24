@@ -86,7 +86,7 @@ That is exactly what I did (and my arms are still sore). I tried different Comet
 Parent ion tolerance|PSMs|PSMs with iso errors|PSMs with iso errors and deamidation
 --------------------|----|--------------------|------------------------------------
 10 PPM|81,655|95,311|98,251
-20 PPM|81,626|100,554|101,233
+20 PPM|84,068|100,554|101,233
 50 PPM|86,216|104,751|106,776
 1.25 Da|108,826|108,563|109,015
 
