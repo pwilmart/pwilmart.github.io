@@ -123,5 +123,6 @@ The [parent ion mass correction](https://github.com/pwilmart/precursor_mass_corr
 
 ---
 
-Thanks for reading! </br>
-Phil Wilmarth </br> April 22, 2021
+Thanks for reading! <br>
+Phil Wilmarth <br>
+April 22, 2021
