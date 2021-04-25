@@ -129,8 +129,7 @@ Target matches are in blue and decoy matches are in red. We can see that the noi
 
 <br>
 
-> Note: When Comet tries isotopic errors, the reported delta masses do not change (i.e. do not get close to zero daltons). An M1 trigger will have delta mass around 1.003 Da (remember that Comet reports masses at MH+ masses). Although a match may be within 10 PPM of the M1 peak, how to report that in the results table is something that is not obvious and could vary by search engine. These sorts of things can have implications for downstream classifier tools like Percolator.
-
+> Note: When Comet tries isotopic errors, the reported deltamasses will not change (i.e. do not get close to zero daltons). An M1 trigger will have deltamass around 1.003 Da (remember that Comet reports masses as MH+ masses), an M2 trigger has deltamass 2.006 Da, etc. Although a match may be within 10 PPM of an isotopic peak, how to report that in the results table is something that is not obvious and could vary by search engine. These sorts of things can have implications for downstream classifier tools like Percolator.
 
 ## The take home message
 
