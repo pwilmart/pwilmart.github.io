@@ -83,7 +83,7 @@ It took proteomics a long time to find the secret sauce for optimizing search en
 
 That is exactly what I did (and my arms are still sore). I tried different Comet setting on the same data and wrote down the numbers of PSMs at 1% FDR. Then I made this table:
 
-Parent ion tolerance|PSMs|PSMs with iso errors|PSMs with iso errors and deamidation
+Parent ion <br>tolerance|PSMs|PSMs with <br>iso errors|PSMs with <br>iso errors and deamidation
 --------------------|----|--------------------|------------------------------------
 10 PPM|81,655|95,311|98,251
 20 PPM|84,068|100,554|101,233
@@ -107,7 +107,7 @@ Narrow tolerance searches by themselves (without isotopic errors tried) are quit
 
 When we have a wide parent ion mass tolerance, incorrect matches spread out over the full window width and few incorrect matches will have deltamasses in the narrow regions where correct matches cluster, such as the 0-Da region. The table numbers below are from the runs with different parent ion mass tolerances and no related search engine settings (i.e. isotopic errors). The values are integrated areas of the narrow 0-Da peak (from about the 1/10th peak height levels) for target matches or decoy matches for each charge state.
 
-  Tolerance|2+ Target|2+ Decoy|3+ Target|3+ Decoy|4+ Target|4+ Decoy
+  Tolerance|2+ <br>Target|2+ <br>Decoy|3+ <br>Target|3+ <br>Decoy|4+ <br>Target|4+ <br>Decoy
   ---|---|---|---|---|---|---
   1.25Da|46,268|4,146|28,964|1,847|5,894|349
   50ppm|54,905|9,838|32,827|5,051|6,757|1,089
@@ -120,7 +120,7 @@ This figure show the 0-Da deltamass regions for 2+ peptide and the four parent i
 
 Target matches are in blue and decoy matches are in red. We can see that the noise really piles up under the 0-Da peak as the tolerances get tighter and tighter. Some alternative ways to think about how this accurate deltamass quantity is affect are: the signal-to-noise for the 0-Da peak get much worse, or the probability that a 0-Da deltamass is associated with a  correct match decreases dramatically. This table shows signal-to-noise ratios and how much the estimated noise under the 0-Da peak increases as the tolerance gets tighter.
 
-  Tolerance|2+ S/N|2+ Noise <br>Increase|3+ S/N|3+ Noise <br>Increase|4+ S/N|4+ Noise <br>Increase
+  Tolerance|2+ <br>S/N|2+ Noise <br>Increase|3+ <br>S/N|3+ Noise <br>Increase|4+ <br>S/N|4+ Noise <br>Increase
   ---|---|---|---|---|---|---
   1.25Da|11.2|1|15.7|1|16.9|1
   50ppm|5.6|2.4|6.5|2.7|6.2|3.1
