@@ -114,13 +114,13 @@ When we have a wide parent ion mass tolerance, incorrect matches spread out over
   20ppm|65,618|19,699|38,263|10,021|7,838|2,087
   10ppm|75,051|30,143|40,112|13,538|7,605|2,568
 
-This figure show the 0-Da delta mass regions for 2+ peptide and the 4 parent ion mass tolerance settings:
+This figure show the 0-Da deltamass regions for 2+ peptide and the four parent ion mass tolerance settings:
 
 ![delta masses](https://pwilmart.github.io/images/composite_deltamass_figure.png)
 
-We can see that the noise really piles up under the 0-Da peak as the tolerances get tighter and tighter. Some alternative ways to think about how this accurate deltamass quantity is affect are: the signal-to-noise for the 0-Da peak get much worse, or the probability that a 0-Da deltamass is associated with a  correct match decreases dramatically. This table shows signal-to-noise ratios and how much the estimated noise under the 0-Da peak increases as the tolerance gets tighter.
+Target matches are in blue and decoy matches are in red. We can see that the noise really piles up under the 0-Da peak as the tolerances get tighter and tighter. Some alternative ways to think about how this accurate deltamass quantity is affect are: the signal-to-noise for the 0-Da peak get much worse, or the probability that a 0-Da deltamass is associated with a  correct match decreases dramatically. This table shows signal-to-noise ratios and how much the estimated noise under the 0-Da peak increases as the tolerance gets tighter.
 
-  Tolerance|2+ S/N|2+ Noise Increase|3+ S/N|3+ Noise Increase|4+ S/N|4+ Noise Increase
+  Tolerance|2+ S/N|2+ Noise <br>Increase|3+ S/N|3+ Noise <br>Increase|4+ S/N|4+ Noise <br>Increase
   ---|---|---|---|---|---|---
   1.25Da|11.2|1|15.7|1|16.9|1
   50ppm|5.6|2.4|6.5|2.7|6.2|3.1
