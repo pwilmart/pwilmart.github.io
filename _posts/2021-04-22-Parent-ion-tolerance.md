@@ -90,13 +90,11 @@ Parent ion tolerance|PSMs|PSMs with iso errors|PSMs with iso errors and deamidat
 50 PPM|86,216|104,751|106,776
 1.25 Da|108,826|108,563|109,015
 
-The small print: California sea lion FASTA file, semi-tryptic cleavage with up to 2 missed cleavages, variable met oxidation, static alkylated cys, and high resolution fragment ions.
+The small print: Thousands separator is a comma, California sea lion FASTA file, semi-tryptic cleavage with up to 2 missed cleavages, variable met oxidation, static alkylated cys, and high resolution fragment ions.
 
 > NOTE: You do not need to allow isotopic errors when doing a wide tolerance search. It is overkill and not recommended. I never bother with deamidation as a variable modification in wide tolerance searches, either.
 
-## The take home message
-
-Is it time to outgrow the limitations of narrow tolerances and go big with the parent ion tolerance? I bet being more tolerant was on your New Year's Resolution list. Not only do you get the best results, you can ignore all of that other crazy stuff (isotopic errors and the deamidation complications). Putting all joking aside, try wide tolerance setting in your workflows and see if you get improvements. Not all tools will let you get the best results, though. Maybe that should be a good reason to find better tools.
+## Interpreting the results
 
 Narrow tolerance searches by themselves (without isotopic errors tried) are quite bad. The reasons are many:
 - isotopic errors are not insignificant
@@ -106,6 +104,37 @@ Narrow tolerance searches by themselves (without isotopic errors tried) are quit
   - narrow tolerances do not **reject** noise
   - narrow tolerances instead **select** different noise
   - deltamass values become a weak classifier feature
+
+When we have a wide parent ion mass tolerance, incorrect matches spread out over the full window width and few incorrect matches will have deltamasses in the narrow regions where correct matches cluster, such as the 0-Da region. The table numbers below are from the runs with different parent ion mass tolerances and no related search engine settings (i.e. isotopic errors). The values are integrated areas of the narrow 0-Da peak (from about the 1/10th peak height levels) for target matches or decoy matches for each charge state.
+
+  Tolerance|2+ Target|2+ Decoy|3+ Target|3+ Decoy|4+ Target|4+ Decoy
+  ---|---|---|---|---|---|---
+  1.25Da|46,268|4,146|28,964|1,847|5,894|349
+  50ppm|54,905|9,838|32,827|5,051|6,757|1,089
+  20ppm|65,618|19,699|38,263|10,021|7,838|2,087
+  10ppm|75,051|30,143|40,112|13,538|7,605|2,568
+
+This figure show the 0-Da delta mass regions for 2+ peptide and the 4 parent ion mass tolerance settings:
+
+![delta masses](https://pwilmart.github.io/images/composite_deltamass_figure.png)
+
+We can see that the noise really piles up under the 0-Da peak as the tolerances get tighter and tighter. Some alternative ways to think about how this accurate deltamass quantity is affect are: the signal-to-noise for the 0-Da peak get much worse, or the probability that a 0-Da deltamass is associated with a  correct match decreases dramatically. This table shows signal-to-noise ratios and how much the estimated noise under the 0-Da peak increases as the tolerance gets tighter.
+
+  Tolerance|2+ S/N|2+ Noise Increase|3+ S/N|3+ Noise Increase|4+ S/N|4+ Noise Increase
+  ---|---|---|---|---|---|---
+  1.25Da|11.2|1|15.7|1|16.9|1
+  50ppm|5.6|2.4|6.5|2.7|6.2|3.1
+  20ppm|3.3|4.8|3.8|5.4|3.8|6.0
+  10ppm|2.5|7.3|3.0|7.3|3.0|7.4
+
+<br>
+
+> Note: When Comet tries isotopic errors, the reported delta masses do not change (i.e. do not get close to zero daltons). An M1 trigger will have delta mass around 1.003 Da (remember that Comet reports masses at MH+ masses). Although a match may be within 10 PPM of the M1 peak, how to report that in the results table is something that is not obvious and could vary by search engine. These sorts of things can have implications for downstream classifier tools like Percolator.
+
+
+## The take home message
+
+Is it time to outgrow the limitations of narrow tolerances and go big with the parent ion tolerance? I bet being more tolerant was on your New Year's Resolution list. Not only do you get the best results, you can ignore all of that other crazy stuff (isotopic errors and the deamidation complications). Putting all joking aside, try wide tolerance setting in your workflows and see if you get improvements. Not all tools will let you get the best results, though. Maybe that should be a good reason to find better tools.
 
 You can make narrow tolerance searches a lot better by allowing isotopic errors. You can get some small further gains with deamidation of N. However, the 1-3% gain from deamidation is probably small enough to think about skipping. It is clear that 10 PPM is too narrow (as would be tighter tolerances). These very narrow tolerances are quite sensitive to any mass calibration errors. Mass re-calibration is an option in many tools, but I think it is still risky.
 
