@@ -61,10 +61,12 @@ My [PAW pipeline](https://github.com/pwilmart/PAW_pipeline) is freely available 
 
 [PXD003164](https://www.ebi.ac.uk/pride/archive/projects/PXD003164) from [Bayram et al., 2016](https://www.sciencedirect.com/science/article/abs/pii/S1874391915302268) - Sperm samples from multiple species
 
-</br>
+MaxQuant was run with default setting with a couple of exceptions. Protein FDR cutoff was raised from 0.01 to 0.99. Semi-tryptic cleavage was used for the sperm samples. The 19 species in the sperm study were searched against a human canonical database (a closely related organism with a very well characterized genome).
+
+<br>
 
 **PXD002395 - HeLa digests (each run was 6 fractions)**
-</br>(thousands separator is a comma)
+<br>(thousands separator is a comma)
 
 Experiment|MS2 Scans|MQ (1% FDR)|PAW (1% FDR)|MQ Loss
 ----------|---------|-----------|------------|-------
@@ -74,22 +76,22 @@ Experiment|MS2 Scans|MQ (1% FDR)|PAW (1% FDR)|MQ Loss
 
 The numbers of identified PSMs (3rd and 4th columns) is roughly comparable for both MaxQuant and PAW. HeLa digests with a modest number of fractions represent a nearly ideal sample. The overall ID rates are high. The total number of matches is determined by the size of the dataset (the number of MS2 scans). In simple terms, what we do not identify (the difference between the MS2 scan total and the identified total) is mostly noise and will be equally split between incorrect target matches and decoy matches. When we can ID most of the spectra, we have less noise to deal with and the sensitivity (recovery) is better.
 
-</br>
+<br>
 
-**PXD002395 - HeLa digests (each run was 6 fractions)**
-</br>(thousands separator is a comma)
+**PXD019311 - HeLa and yeast digests (single shot in triplicate)**
+<br>(thousands separator is a comma)
 
 Experiment|MS2 Scans|MQ (1% FDR)|PAW (1% FDR)|MQ Loss
 ----------|---------|-----------|------------|-------
 HeLa|216,713|53,613|69531|-22.9%
 Yeast|185,587|53,332|66109|-19.3%
 
-Here we also have very favorable proteomics samples; however, we do not have as much fractionization (single shot runs). The overall ID rates are lower (i.e. larger relative incorrect distributions) and the recovery is reduced. Here we can think of the number of PAW identifications as a proxy for how many PSMs we could ideally identify. We see larger losses for MaxQuant here.  
+Here we also have very favorable proteomics samples; however, we do not have as much fractionation (single shot runs). The overall ID rates are lower (i.e. larger relative incorrect distributions) and the recovery is reduced. Here we can think of the number of PAW identifications as a proxy for how many PSMs we could ideally identify. We see larger losses for MaxQuant here.  
 
-</br>
+<br>
 
-**PXD0031645 - 30 Sperm samples**
-</br>(thousands separator is a comma)
+**PXD003164 - 30 sperm samples**
+<br>(thousands separator is a comma)
 
 Experiment|MS2 Scans|MQ (1% FDR)|PAW (1% FDR)|MQ Loss
 ----------|---------|-----------|------------|-------
@@ -136,4 +138,4 @@ The solution is quite clear: meta-scoring (combinations of scores and other quan
 ---
 
 Phil Wilmarth
-</br> May 23, 2021        
+<br> May 23, 2021        
