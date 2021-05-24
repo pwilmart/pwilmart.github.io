@@ -95,13 +95,13 @@ Here we also have very favorable proteomics samples; however, we do not have as 
 
 Experiment|MS2 Scans|MQ (1% FDR)|PAW (1% FDR)|MQ Loss
 ----------|---------|-----------|------------|-------
-Semi 3% FDR|549,842|52,623|106,966|-50.8%
-Semi 1% FDR|549,842|38,646|96,524|-60.0%
-Tryptic 3% FDR|549,842|65,754|96,263|-31.7%
+Semi - 3% FDR|549,842|52,623|106,966|-50.8%
+Semi - 1% FDR|549,842|38,646|96,524|-60.0%
+Tryptic - 3% FDR|549,842|65,754|96,263|-31.7%
 
 Now things are getting real, as in real world samples. These sperm samples are much more realistic than the HeLa and yeast digests. Like all bio fluids, we would expect to have a sizable fraction of the PSMs that are not fully tryptic (consistent with trypsin cleavage on both ends). There are several reasons why we have peptides that are only consistent with trypsin on one end (semi-tryptic). We can have very minor loss of ID performance for fully tryptic peptides when we increase search space to allow semi-tryptic peptides. That will be more than offset by the additional semi-tryptic peptide identifications.
 
-In the semi-trpytic searches, we are losing over **half** of the PSMs when we use MaxQuant. That is what I think is unacceptable science. We also see a relatively bigger loss of PSMs when going from 3% FDR to 1% FDR (we will talk about that below) for MaxQuant compared to PAW. Ironically, MaxQuant identifies considerably more PSMs in fully trpytic searches than semi-tryptic searches. That suggests that the either the scoring function in Andromeda or the PSM FDR analysis cannot correctly deal with semi-tryptic search spaces (it could be both). We have to get more total PSMs when doing semi-tryptic searches for samples like these. That is just reality.
+In the semi-trpytic searches, we are losing over **half** of the PSMs when we use MaxQuant. That is what I think is unacceptable science. We also see a relatively bigger loss of PSMs when going from 3% FDR to 1% FDR (we will talk about that below) for MaxQuant compared to PAW. Ironically, MaxQuant identifies considerably more PSMs in fully trpytic searches than semi-tryptic searches. That suggests that either the scoring function in Andromeda or the PSM FDR analysis cannot correctly deal with semi-tryptic search spaces (it could be both). We have to get more total PSMs when doing semi-tryptic searches for samples like these. That is just reality.
 
 These samples have lower overall ID rates compared to the less demanding HeLa and yeast samples. We see a clear trend where MaxQuant performance degrades when the number of correct matches is a smaller fraction of all the scans. We often have samples with relatively few correct IDs in real world proteomics. MaxQuant's poor (and variable ) performance with real world samples raises red flags.
 
@@ -133,7 +133,7 @@ MaxQuant/Andromeda is not a particularly sensitive PSM pipeline. It performs bet
 
 > Also, these PSMs will tend to be of lower abundance and could be critical for important biological processes.
 
-The solution is quite clear: meta-scoring (combinations of scores and other quantities) and better use of parent search ion tolerances could offer dramatically improved MaxQuant performance. Making use of Percolator with MaxQuant would be a first thing to try. There are many ways to solve this problem and help the proteomics community do better science.
+The solution is quite clear: meta-scoring (combinations of scores and other quantities) and better use of parent search ion tolerances could offer dramatically improved MaxQuant performance. Making use of Percolator with MaxQuant would be a first thing to try. There are many ways to solve this problem, and help the proteomics community do better science.
 
 ---
 
