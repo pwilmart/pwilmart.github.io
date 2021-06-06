@@ -6,7 +6,7 @@ date: 2021-06-06
 
 # What makes the [PAW pipeline](https://github.com/pwilmart/PAW_pipeline) different?
 
-Sitting down with Dr. Ben Neely to discuss my PAW pipeline (https://www.youtube.com/watch?v=ycRccM1myDE) got me thinking about what makes my pipeline different and how did that come to pass?
+Sitting down with Dr. Ben Neely to discuss my PAW pipeline (video available [here](https://www.youtube.com/watch?v=ycRccM1myDE)) got me thinking about what makes my pipeline different and how did that come to pass?
 
 ## Pipeline History
 
