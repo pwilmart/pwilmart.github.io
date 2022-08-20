@@ -6,7 +6,7 @@ date: 2020-01-05
 
 # Understanding MS2 TMT ratio inaccuracies
 
-## Backgound
+## Background
 
 We have been aware that isobaric labeling data from MS2 scans has had some accuracy issues for more than a decade. The path to understanding this topic has been a slow one and I do not think we are all of the way there yet.
 
