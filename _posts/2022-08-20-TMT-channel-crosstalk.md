@@ -86,6 +86,10 @@ Light tags mostly have heavier satellite tags (more natural carbon with fewer su
 
 ## Experimental design considerations
 
+This topic was explored for smaller TMT kits by Alejandro Brenes, et al. in 2019 (see Figure 6 in the reference below).
+
+> Brenes, A., Hukelmann, J., Bensaddek, D. and Lamond, A.I., 2019. Multibatch TMT reveals false positives, batch effects and missing values. Molecular & Cellular Proteomics, 18(10), pp.1967-1980.
+
 It may be desirable from an experimental design standpoint to allocate samples from each biological condition in a way that minimizes the cross talk between biological groups. We have to recognize that TMT tags do have some cross talk with each other for adjacent (in the N- and C-sense) channels. How much of a nuisance that presents depends on many factors: are channel values being compared at similar intensities or do they vary a lot? The cross talk is more of an issue if the adjacent channel is large and the channel of interest is small. Like life, the rich do more damage to the poor than the other way around. Most inequities are not equal. Do we expect to have very large fold-change values and do we need to measure them accurately? Can there be skipped (empty) channels to minimize cross talk?
 
 To help with experiment planning, **Figure 1** shows to what extent lighter tags contribute cross talk to heavier tags. **Figure 2** shows how much heavier tags cross talk with lighter tags. **Figure 2** also shows the difference between the C-series and the N-series for -1 Da satellites.
