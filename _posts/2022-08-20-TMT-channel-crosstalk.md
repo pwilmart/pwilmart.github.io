@@ -102,11 +102,11 @@ To help with experiment planning, **Figure 1** shows to what extent lighter tags
 
 **Figure 2.** Diagram of which tags have -1 Da satellites and how much relative abundance the tags contribute to their satellites. The top row is for the C-series tags and the bottom row is the N-series tags. The N-series tags have two -1 Da satellites and their is some limited scrambling between the N-series and the C-series tags. For example, if the 135N tag had a peak height of 100, it would have two satellite peaks: 134C with a height of about 1 and 134N with a relative height of about 8.
 
-There may be situations where some way to allocate channels to tags that minimizes cross talk is important. An 18-plex kit can be split into a 10-plex series and an 8-plex series that each have reduced cross talk. This would involve running samples in two separate plexes (and the complication of reference channels if you need more than 8 or 10 channels). **Figure 3** shows the two series (10-plex on top and 8-plex on bottom). The cross talk from the satellite peaks associated with carbon atoms can be eliminated. However, the small cross talk of N-series tags to lighter C-series tags cannot be eliminated. However, the degree of that cross talk is only about a 1% relative effect.
+There may be situations where some way to allocate channels to tags that minimizes cross talk is important. An 18-plex kit can be split into a 10-plex series and an 8-plex series that each have reduced cross talk. This would involve running samples in two separate plexes (and the complication of reference channels if you need more than 8 or 10 channels). **Figure 3** shows the two series (10-plex on top and 8-plex on bottom). The cross talk from the satellite peaks associated with carbon atoms can be eliminated. However, the small cross talk of N-series tags to lighter C-series tags cannot be eliminated. Although, the degree of that cross talk is only about a 1% relative effect.
 
 ![Plus one effects](https://pwilmart.github.io/images/Crosstalk_clean-series.png)
 
-**Figure 3.** Two possible series (10-plex on top and 8-plex on bottom) with reduced cross talk can be created from an 18-plex kit.
+**Figure 3.** Two possible series (10-plex on top and 8-plex on bottom) with reduced cross talk can be created from one 18-plex kit.
 
 Tags at each end of the tag mass range are cleaner because of boundary effects. There are no tags lighter than 126C and light tags mostly contribute to heavier tag intensities. Similar arguments apply to the heaviest tags. These cleaner channels (see **Figure 4**) may be good choices for reference channels to get the most accurate correction factors.
 
@@ -114,7 +114,7 @@ Since tags in the middle get some contribution from both lighter and heavier tag
 
 ![Plus one effects](https://pwilmart.github.io/images/Crosstalk_tag-purity.png)
 
-**Figure 4.** Tag cross talk has a boundary effect. We can add up the total contribution from all adjacent channels for each tag and estimate how much of the tag value comes from the sample of interest. The first two channels and the last two channels have less cross talk and may be good choices for reference channels. Note the y-axis starts at 50%.
+**Figure 4.** Tag cross talk has a boundary effect. We can add up the total contribution from all adjacent channels for each tag and estimate how much of the tag value comes from the sample of interest. The first two channels and the last two channels have reduced cross talk and may be good choices for reference channels. Note the y-axis starts at 50%.
 
 ![Plus one effects](https://pwilmart.github.io/images/Crosstalk_tag-intensity.png)
 
