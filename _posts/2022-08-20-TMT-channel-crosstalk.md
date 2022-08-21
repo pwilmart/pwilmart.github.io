@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TMT Channel Cross Talk"
-date: 2022-08-21
+date: 2022-08-20
 ---
 
 # Understanding TMT Channel Cross Talk
@@ -86,12 +86,42 @@ Light tags mostly have heavier satellite tags (more natural carbon with fewer su
 
 ## Experimental design considerations
 
-![Plus one effects](https://pwilmart.github.io/images/Crosstalk_plus1.png) 
+It may be desirable from an experimental design standpoint to allocate samples from each biological condition in a way that minimizes the cross talk between biological groups. We have to recognize that TMT tags do have some cross talk with each other for adjacent (in the N- and C-sense) channels. How much of a nuisance that presents depends on many factors: are channel values being compared at similar intensities or do they vary a lot? The cross talk is more of an issue if the adjacent channel is large and the channel of interest is small. Like life, the rich do more damage to the poor than the other way around. Most inequities are not equal.
+
+To help with experiment planning, **Figure 1** shows to what extent lighter tags contribute cross talk to heavier tags. **Figure 2** shows how much heavier tags cross talk with lighter tags. **Figure 2** also shows the difference between the C-series and the N-series for -1 Da satellites.
+
+![Plus one effects](https://pwilmart.github.io/images/Crosstalk_plus1.png)
+
+**Figure 1.** Diagram of which tags have +1 Da satellites and how much relative abundance the tags contribute to their satellites. The top row is for the C-series tags and the bottom row is the N-series tags. For example, if the 126C tag had a peak height of 100 on a relative scale, it would also have a 127C satellite with a peak height of 8.
+
+![Plus one effects](https://pwilmart.github.io/images/Crosstalk_minus1.png)
+
+**Figure 2.** Diagram of which tags have -1 Da satellites and how much relative abundance the tags contribute to their satellites. The top row is for the C-series tags and the bottom row is the N-series tags. The N-series tags have two -1 Da satellites and their is some limited scrambling between the N-series and the C-series tags. For example, if the 135C tag had a peak height of 100, it would have two satellite peaks: 134C with a height of 1 and 134N with a relative height of 8.
+
+There may be situations where some way to allocate channels to tags that minimizes cross talk is important. An 18-plex kit can be split into a 10-plex series and an 8-plex series that each have reduced cross talk. **Figure 3** shows the two series (10-plex on top and 8-plex on bottom). The cross talk from the satellite peaks associated with carbon atoms can be eliminated. However, the small cross talk of N-series tags to lighter C-series tags cannot be eliminated. However, the degree of cross talk is only about a 1% effect.
+
+![Plus one effects](https://pwilmart.github.io/images/Crosstalk_clean-series.png)
+
+**Figure 3.** Two possible series (10-plex on top and 8-plex on bottom) with reduced cross talk can be created from an 18-plex kit.
+
+Tags at each end of the tag mass range are cleaner because of boundary effects. There are no tags lighter than 126C and light tags mostly contribute to heavier tag intensities. Similar arguments apply to the heaviest tags. These cleaner channels (see **Figure 4**) may be good choices for reference channels to get the most accurate correction factors.
+
+Since tags in the middle get some contribution from both lighter and heavier tags in a coordinated way, they would have slightly higher relative intensities (see **Figure 5**) than the tags at either ends of the tag mass range (assuming we started with equal amounts of each tag).
+
+![Plus one effects](https://pwilmart.github.io/images/Crosstalk_tag-purity.png)
+
+**Figure 4.** Tag cross talk has a boundary effect. We can add up the total contribution from all adjacent channels for each tag and estimate how much of the tag value comes from the sample of interest. The first two channels and the last two channels have less cross talk and may be good choices for reference channels. Note the y-axis starts at 50%.
+
+![Plus one effects](https://pwilmart.github.io/images/Crosstalk_tag-intensity.png)
+
+**Figure 5.** Total tag intensity also shows the boundary effect. The first two tags and the last two tags get reduced contributions from adjacent channels (because the adjacent channels are only on one side) and would have slightly lower total intensity if we mixed together the same amount of each tag.
 
 
 ## Conclusions
 
+Adjacent channel cross talk in TMT experiments has been shrouded in mystery for ages. I think it is pretty straightforward to understand if you take a little time to think it though. I estimated the relative contributions of the isotopic satellites without doing any detailed isotopic distribution modeling. Isotopic distribution calculators do not understand isotopically enriched atoms, so I would have to do some work to produce isotopic distributions. This "back-of-the-envelope" calculation is in the ballpark, though. We have some general agreement with the [Thermo TMT spec sheet](https://idearesourceproteomics.org/wp-content/uploads/2020/02/TMTPro-Best-Practices.pdf) shown in the document link. I ignored the natural abundances of nitrogen and hydrogen. I also ignored any -2 or +2 Da shifts.
 
+To correct or not to correct, that is the question. I do not do isotopic corrects of tag intensities. I do not think the measured relative abundance data in the QC spec sheets is any more accurate that theoretical isotopic calculations (that would never have to be entered into any software). There is the question of when to try to correct things. I feel PSM-level data is too noisy (and it can have missing values). Intensities aggregated to the protein level would probably be better starting data. Not everyone aggregates data to the protein level the same way, though. There are also considerations of how the correction algorithm "cross talks" with normalization steps. Things have to be done in the right order. Thinking all of that though carefully is too risky for me. I just assume there is limited dynamic range in TMT measurements and that large changes may not be as accurate. Some understanding of adjacent channel cross talk can help you design better experiments if wide dynamic range and greater accuracy are critical.  
 
 ---
 
