@@ -12,7 +12,7 @@ This post will look at TMT channel cross talk (how much each channel is affected
 
 The N-series tags are created by replacing the one N14 atom with an N15 atom. The mass difference between N15 and N14 is 0.997 Da and differs from the mass difference between C13 and C12 (1.0033 Da) by 6 milliDa. With high-resolution instruments, resolutions greater than 50K are sufficient to resolve the N- and C-forms of the tags. The N-series tags are created from the one Da lighter C-series tag; the 127N tag comes from the 126C tag with a substituted nitrogen, etc. We also have 9 N-series tags that range from nominal mass 127 to 135. Note that we have one tag at mass 126 (126C) and one tag at mass 135 (135N).
 
-Naturally occurring elements usually have multiple stable isotopes that all share the same number of proteins (their matching number of electrons give us the chemical element) but differ in the number of neutrons. For example, carbon-12 has 6 proteins and 6 neutrons. Carbon-13 has 6 proteins and 7 neutrons. The TMT tags are only composed of three elements and the isotopic abundances are listed in **Table 1**.
+Naturally occurring elements usually have multiple stable isotopes that all share the same number of protons (their matching number of electrons give us the chemical element) but differ in the number of neutrons. For example, carbon-12 has 6 protons and 6 neutrons. Carbon-13 has 6 protons and 7 neutrons. The TMT tags are only composed of three elements and the isotopic abundances are listed in **Table 1**.
 
 **Table 1.** Isotopic abundances for the elements in TMT tags.
 
