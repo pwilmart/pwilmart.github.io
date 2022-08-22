@@ -8,7 +8,11 @@ date: 2022-08-20
 
 ## Background
 
-This post will look at TMT channel cross talk (how much each channel is affected by isotopic peaks from other channels) for [18-plex TMTpro](https://www.thermofisher.com/order/catalog/product/A52045) reagents. The unique mass tags range in nominal mass from 126 to 135. They have 8 carbon atoms, one nitrogen atom, and 16 H atoms. The C-series tags range from 126 to 134 in nominal mass (9 tags in total). Each heavier tag corresponds to replacement of progressively more naturally occurring carbon atoms with isotopically enriched C13 atoms until all 8 carbons have been replaced. The heavy carbons are used during synthesis of the TMT reagent molecules to replace specific carbon atoms in the tags and in the mass balancer.
+This post will look at TMT channel cross talk (how much each channel is affected by isotopic peaks from other channels) for [18-plex TMTpro](https://www.thermofisher.com/order/catalog/product/A52045) reagents.
+
+>The same logic below applies to all TMT kits with fewer channels. The tags are the same structures and are subsets of the 18-plex tags. 
+
+The unique mass tags range in nominal mass from 126 to 135. They have 8 carbon atoms, one nitrogen atom, and 16 H atoms. The C-series tags range from 126 to 134 in nominal mass (9 tags in total). Each heavier tag corresponds to replacement of progressively more naturally occurring carbon atoms with isotopically enriched C13 atoms until all 8 carbons have been replaced. The heavy carbons are used during synthesis of the TMT reagent molecules to replace specific carbon atoms in the tags and in the mass balancer.
 
 The N-series tags are created by replacing the one N14 atom with an N15 atom. The mass difference between N15 and N14 is 0.997 Da and differs from the mass difference between C13 and C12 (1.0033 Da) by 6 milliDa. With high-resolution instruments, resolutions greater than 50K are sufficient to resolve the N- and C-forms of the tags. The N-series tags are created from the one Da lighter C-series tag; the 127N tag comes from the 126C tag with a substituted nitrogen, etc. We also have 9 N-series tags that range from nominal mass 127 to 135. Note that we have one tag at mass 126 (126C) and one tag at mass 135 (135N).
 
